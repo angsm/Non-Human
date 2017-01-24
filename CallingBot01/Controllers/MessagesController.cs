@@ -7,6 +7,8 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using Microsoft.Bot.Connector;
 using Newtonsoft.Json;
+using System.Diagnostics;
+
 
 namespace CallingBot01
 {
@@ -26,8 +28,13 @@ namespace CallingBot01
                 int length = (activity.Text ?? string.Empty).Length;
 
                 // return our reply to the user
-                Activity reply = activity.CreateReply($"You sent {activity.Text} which was {length} characters");
+                // Make an api call
+                QAndA qa = new QAndA();
+                String answer = qa.test(activity.Text);
+
+                Activity reply = activity.CreateReply(answer);
                 await connector.Conversations.ReplyToActivityAsync(reply);
+
             }
             else
             {
@@ -36,6 +43,8 @@ namespace CallingBot01
             var response = Request.CreateResponse(HttpStatusCode.OK);
             return response;
         }
+
+
 
         private Activity HandleSystemMessage(Activity message)
         {

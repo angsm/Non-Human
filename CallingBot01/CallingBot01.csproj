@@ -58,6 +58,10 @@
       <HintPath>..\packages\Microsoft.Bot.Builder.Calling.3.0.1\lib\net46\Microsoft.Bot.Builder.Calling.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.Bot.Builder.CognitiveServices.QnAMaker, Version=1.0.6215.35517, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bot.Builder.CognitiveServices.1.0.2\lib\net46\Microsoft.Bot.Builder.CognitiveServices.QnAMaker.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Bot.Connector, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bot.Builder.3.5.0\lib\net46\Microsoft.Bot.Connector.dll</HintPath>
       <Private>True</Private>
@@ -123,6 +127,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApiCalls\WebServices.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CallingController.cs" />
     <Compile Include="Controllers\MessagesController.cs" />
